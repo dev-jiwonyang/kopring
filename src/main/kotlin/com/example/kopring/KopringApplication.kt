@@ -4,12 +4,15 @@ import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication
 
 import org.postgresql.ds.PGSimpleDataSource;
+import org.springframework.beans.factory.annotation.Value
 
 @SpringBootApplication
 class KopringApplication
 
 fun main(args: Array<String>) {
 	runApplication<KopringApplication>(*args)
+
+//	@Value("${db.host}")
 
 	try {
 		val ds = PGSimpleDataSource()

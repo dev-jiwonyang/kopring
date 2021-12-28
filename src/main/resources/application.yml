@@ -1,0 +1,8 @@
+server:
+    port: 8081
+
+db:
+  host: localhost
+  port: 26257
+  name: defaultdb
+  user-name: root

@@ -1,0 +1,24 @@
+syntax = "proto3";
+
+package me.grpc; // package
+
+option java_outer_classname = "Bye";                                                    // 클래스 이름
+option java_multiple_files = true;                                                      // 1개의 proto 파일에서 여러개의 클래스 파일이 생성 가능
+
+/**
+ * Bye Service
+ */
+service ByeService {
+  rpc SingleRequestSingleResponse (ByeRequest) returns (ByeResponse);             // 단일 요청 단일 응답 RPC
+  rpc SingleRequestManyResponse (ByeRequest) returns (stream ByeResponse);        // 단일 요청 멀티 응답 RPC
+  rpc ManyRequestSingleResponse (stream ByeRequest) returns (ByeResponse);        // 멀티 요청 단일 응답 RPC
+  rpc ManyRequestManyResponse (stream ByeRequest) returns (stream ByeResponse);   // 멀티 요청 멀티 응답 RPC
+}
+
+message ByeRequest { // 요청 메시지 포맷
+  string bye = 1;
+}
+
+message ByeResponse { // 응답 메시지 포맷
+  string world = 1;
+}
